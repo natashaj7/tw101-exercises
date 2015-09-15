@@ -2,9 +2,13 @@ package com.thoughtworks.tw101.introductory_programming_exercises;
 
 public class TriangleExercises {
     public static void main(String[] args) {
+        System.out.println("Exercise 1:");
         drawAnAsterisk();
+        System.out.println("Exercise 2:");
         drawAHorizontalLine(8);
+        System.out.println("Exercise 3:");
         drawAVerticalLine(3);
+        System.out.println("Exercise 4:");
         drawARightTriangle(3);
     }
 
@@ -12,7 +16,6 @@ public class TriangleExercises {
 //    Print one asterisk to the console.
 //    Example: *
     private static void drawAnAsterisk() {
-        System.out.println("Excercise 1:");
         System.out.println("*");
     }
 
@@ -20,7 +23,6 @@ public class TriangleExercises {
 //    Given a number n, print n asterisks on one line.
 //    Example when n=8:  ********
     private static void drawAHorizontalLine(int n) {
-        System.out.println("Excercise 2:");
         for(int i=0;i<n;i++){
             System.out.print("*");
         }
@@ -35,8 +37,6 @@ public class TriangleExercises {
 //            *
 //            *
     private static void drawAVerticalLine(int n) {
-        System.out.println("Excercise 3:");
-
         for(int i=0;i<n;i++){
             System.out.println("*");
         }
@@ -49,8 +49,6 @@ public class TriangleExercises {
 //            **
 //            ***
     private static void drawARightTriangle(int n) {
-        System.out.println("Excercise 4:");
-
         for(int i=1;i<=n;i++){
             for(int j=0;j<i;j++){
                 System.out.print("*");

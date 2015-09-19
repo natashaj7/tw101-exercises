@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         String userGuess;
-
+        boolean isCorrect = false;
         System.out.println("I have a number between " + NumberGenerator.LOW +" and "+ NumberGenerator.HIGH+ ", can you guess what it is:");
         Scanner a = new Scanner(System.in);
         Guess isRight = new Guess(NumberGenerator.generateRandom()); //call NumberGenerator to create a random number and pass it in the Guess constructor
@@ -18,7 +18,10 @@ public class Main {
         while (a.hasNext()) {
             userGuess=a.nextLine();
             if(ValidateGuess.validate(userGuess)){  // catch any NumberFormatExceptions
-                isRight.guess(Integer.parseInt(userGuess));
+                isCorrect=isRight.guess(ValidateGuess.uGuess);
+            }
+            if (isCorrect){
+                break;
             }
         }
     }

@@ -8,9 +8,9 @@ import java.util.List;
 public class Node {
     private String name;
 
-    Node leftChild;
-    Node rightChild;
-    Node root;
+    private Node leftChild;
+    private Node rightChild;
+    private Node root;
 
     public Node(String name) {
         this.name = name;
@@ -22,31 +22,28 @@ public class Node {
         if (root == null) { //if no root yet, make this the root
             root = newNode;
         } else {
-            //set the starting node to traverse the tree
+            //this will be the focus node
             Node currentNode = root;
-
-            //created a future parent for the node
-            Node parent;
-
-            while (true) {
-                parent = currentNode;    //start at the top parent and work way down recursively
-
-                if (nameOfNewNode.compareTo(currentNode.name) > 0) { //check if new node is lower alphabetically than parent
-                    //now focus on the left child
-                    currentNode = currentNode.leftChild;
-                    //check if the left child has children
-                    if (currentNode == null) {
-                        parent.leftChild = newNode;
-                        return;
-                    }
+            //the new node will be the child node of this parent
+            Node parent = currentNode;
+            //start at the top parent and work way down recursively
+            if (nameOfNewNode.compareTo(currentNode.name) > 0) { //check if new node is lower alphabetically than parent
+                //move down to the left child
+                currentNode = currentNode.leftChild;
+                //check if the left child is empty
+                if (currentNode == null) {
+                    //assign the newNode its parent
+                    parent.leftChild = newNode;
                 } else {
-                    currentNode = currentNode.rightChild;
-                    if (currentNode == null) {
-                        parent.rightChild = newNode;
-                        return;
-                    }
+                    parent.leftChild.add(nameOfNewNode);
                 }
-
+            } else {
+                currentNode = currentNode.rightChild;
+                if (currentNode == null) {
+                    parent.rightChild = newNode;
+                } else {
+                    parent.rightChild.add(nameOfNewNode);
+                }
             }
 
         }
@@ -58,13 +55,11 @@ public class Node {
 
             if (root.rightChild != null) {
                 alphabeticNames.addAll(root.rightChild.names());
-                //root.leftChild.names();
             }
             alphabeticNames.add(root.name);
 
             if (root.leftChild != null) {
                 alphabeticNames.addAll(root.leftChild.names());
-                //root.leftChild.names();
             }
 
         }

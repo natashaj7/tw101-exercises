@@ -1,8 +1,5 @@
 package com.thoughtworks.tw101.exercises.exercise6;
 
-/**
- * Created by natashaj7 on 15-09-08.
- */
 public class Troll implements Monster {
 
     static final int INITIALHITPOINTS = 40;
@@ -15,7 +12,7 @@ public class Troll implements Monster {
     }
 
     public void takeDamage(int amount) {
-        currentHitpoints -= amount;
+        currentHitpoints -= (amount/2);
     }
 
     public void reportStatus() {
